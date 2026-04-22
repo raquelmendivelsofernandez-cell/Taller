@@ -1056,11 +1056,13 @@ a[href^="tel"]:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .contact-location-map {
   position: relative;
   isolation: isolate;
+  width: 100%;
   min-height: 300px;
   border-radius: 10px;
   overflow: hidden;
