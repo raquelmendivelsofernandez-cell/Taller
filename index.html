@@ -526,8 +526,12 @@
         if (!galleryGrid || !galleryViewport || galleryItems.length === 0) return null;
         const firstItem = galleryItems[0];
         const firstRect = firstItem.getBoundingClientRect();
-        const gap = parseFloat(window.getComputedStyle(galleryGrid).columnGap || window.getComputedStyle(galleryGrid).gap || "10");
+        const styles = window.getComputedStyle(galleryGrid);
+        const gapValue = styles.columnGap || styles.gap || "10px";
+        const parsedGap = parseFloat(gapValue);
+        const gap = Number.isFinite(parsedGap) ? parsedGap : 10;
         const itemStep = firstRect.width + gap;
+        if (!Number.isFinite(itemStep) || itemStep <= 0) return null;
         visiblePerPage = Math.max(1, Math.floor((galleryViewport.clientWidth + gap) / itemStep));
         totalPages = Math.max(1, Math.ceil(galleryItems.length / visiblePerPage));
         return { itemStep };

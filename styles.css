@@ -1219,22 +1219,38 @@ body.lightbox-open {
 @media (max-width: 640px) {
   .gallery-carousel {
     grid-template-columns: 1fr;
-    gap: 0.55rem;
+    gap: 0.65rem;
+  }
+
+  .gallery-viewport {
+    width: 100%;
+  }
+
+  .gallery-grid {
+    gap: 0;
+  }
+
+  .gallery-cell {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+  }
+
+  .gallery-dots {
+    margin-top: 0.65rem;
   }
 
   .gallery-nav {
-    width: 2.15rem;
-    height: 2.15rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.4rem;
   }
 
   .gallery-nav-prev,
   .gallery-nav-next {
-    justify-self: start;
-  }
-
-  .gallery-nav-next {
-    margin-left: 2.45rem;
-    margin-top: -2.15rem;
+    justify-self: center;
   }
 }
 
